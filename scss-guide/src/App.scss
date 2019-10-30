@@ -73,3 +73,20 @@ $border-color: #aaa;
   // 多个参数时，传参指定参数的名字，可以不用考虑传入的顺序
   @include get-border-radius($color: rgb(236, 221, 14), $border-radius: 10px); //传参
 }
+
+// 继承
+// 定义被继承的样式 % 来定义
+%border-style {
+  border: 1px solid #aaa;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+// 继承样式  通过关键字@extend即可完成继承。
+.container5 {
+	@extend %border-style;
+}
+.container6 {
+	@extend %border-style;
+	color:red;
+}
