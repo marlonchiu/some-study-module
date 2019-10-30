@@ -12,69 +12,40 @@
     <h2>嵌套选择器</h2>
     <div class="container2">
       <ul>
-        <li>
-          <a>1</a>
-        </li>
-        <li>
-          <a>2</a>
-        </li>
-        <li>
-          <a>3</a>
-        </li>
-        <li>
-          <a>4</a>
-        </li>
+        <li><a>1</a></li>
+        <li><a>2</a></li>
+        <li><a>3</a></li>
+        <li><a>4</a></li>
       </ul>
     </div>
-    <h2>导入SCSS文件</h2>
-    <div class="container3">
+    <h2 class="container3">导入SCSS文件</h2>
+    <h2 class="container3">
+      <p>导入SCSS文件说明</p>
+    </h2>
+    <div class="container4">
       <ul>
-        <li>
-          <a>1</a>
-        </li>
-        <li>
-          <a>2</a>
-        </li>
-        <li>
-          <a>3</a>
-        </li>
-        <li>
-          <a>4</a>
-        </li>
+        <li><a>1</a></li>
+        <li><a>2</a></li>
+        <li><a>3</a></li>
+        <li><a>4</a></li>
       </ul>
     </div>
     <h2>混合器</h2>
     <div class="container5">
       <ul>
-        <li>
-          <a>1</a>
-        </li>
-        <li>
-          <a>2</a>
-        </li>
-        <li>
-          <a>3</a>
-        </li>
-        <li>
-          <a>4</a>
-        </li>
+        <li><a>1</a></li>
+        <li><a>2</a></li>
+        <li><a>3</a></li>
+        <li><a>4</a></li>
       </ul>
     </div>
     <h2>继承</h2>
     <div class="container6">
       <ul>
-        <li>
-          <a>1</a>
-        </li>
-        <li>
-          <a>2</a>
-        </li>
-        <li>
-          <a>3</a>
-        </li>
-        <li>
-          <a>4</a>
-        </li>
+        <li><a>1</a></li>
+        <li><a>2</a></li>
+        <li><a>3</a></li>
+        <li><a>4</a></li>
       </ul>
     </div>
   </div>

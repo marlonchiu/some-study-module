@@ -1,6 +1,7 @@
 // 使用变量
 $border-color: #aaa;
-$border_color: red;
+// $border_color: red;
+@import './App2.scss';
 
 .container {
   $border-width: 1px;
@@ -47,4 +48,10 @@ $border_color: red;
     content: "";
     clear: both;
   }
+}
+
+// 引入另一个 SCSS 文件
+.container3 {
+  @import './App2.scss';  //引入另一个SCSS文件
+  border: 1px solid $border-color; //使用变量
 }
