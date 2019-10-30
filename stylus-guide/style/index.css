@@ -1,3 +1,9 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+}
 body {
   font: 12px Helvetica, Arial, sans-serif;
 }
@@ -6,13 +12,45 @@ a.button {
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
+/*
+* 多行注释 输出到编译后的css中
+*/
 .box {
   position: absolute;
-  background: #ffc0cb;
+  background: #f00;
   top: 50%;
   left: 50%;
   width: 150px;
   height: 80px;
   margin-left: -75px;
   margin-top: -40px;
+}
+.box:hover {
+  background-color: #00f;
+}
+/* 变量的向上冒泡查找 */
+.box2 {
+  color: #f00;
+}
+.box2 ul li {
+  color: #00f;
+}
+.box2 ul li a {
+  color: #00f;
+}
+.fn-box1 {
+  width: 150px;
+  height: 50px;
+  background-color: #f88;
+}
+.fn-box2 {
+  width: 200px;
+  height: 50px;
+  background-color: #f88;
+}
+.fn-box3 {
+  width: 200px;
+  height: 30px;
+  padding: 4px;
+  background-color: #f88;
 }

@@ -1,3 +1,9 @@
+// 单行注释 不会输出到编译后的css中
+@import './global'
+html, body
+  margin 0
+  padding 0
+  background-color $bg-color
 body
   font 12px Helvetica, Arial, sans-serif
 
@@ -6,12 +12,40 @@ a.button
   -moz-border-radius 5px
   border-radius 5px
 
+/*
+* 多行注释 输出到编译后的css中
+*/
 .box
   position absolute
-  background pink
+  background #f00
   top 50%
   left 50%
   width 150px
   height 80px
   margin-left -(@width / 2)
   margin-top -(@height / 2)
+  &:hover
+    background-color #00f
+
+/* 变量的向上冒泡查找 */
+.box2
+  color #f00
+  ul
+    li
+      color #00f
+      a
+        color @color
+
+.fn-box1
+  width add(100px, 50px)
+  height sub(100px, 50px)
+  background-color $div-color
+.fn-box2
+  width add2(100px)
+  height sub(100px, 50px)
+  background-color $div-color
+.fn-box3
+  width add2(100px)
+  height getWidth()[2]
+  padding invoke(10, 6, sub)
+  background-color $div-color
