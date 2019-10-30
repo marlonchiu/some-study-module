@@ -8,6 +8,6 @@
 
 ## Stylus 指南
 
-> [SCSS 指南](https://github.com/marlonchiu/some-study-module/tree/master/stylus-guide)
+> [Stylus 指南](https://github.com/marlonchiu/some-study-module/tree/master/stylus-guide)
 >
-> [张鑫旭博客：stylus中文版参考文档](https://www.zhangxinxu.com/jq/stylus/)
+> [张鑫旭博客：stylus 中文版参考文档](https://www.zhangxinxu.com/jq/stylus/)
