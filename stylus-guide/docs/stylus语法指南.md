@@ -17,7 +17,7 @@ npm install stylus -g
 npm install stylus
 
 # stylus基本编译命令
-stylus xxx.styl -o xxx.css   //xxx是你创建的文件名  -o 的意思是-out 输出css文件
+stylus -w xxx.styl -o xxx.css   //xxx是你创建的文件名  -o 的意思是-out 输出css文件 -w监听改变
 ```
 
 - `package.json` 配置指令

@@ -6,3 +6,13 @@ a.button {
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
+.box {
+  position: absolute;
+  background: #ffc0cb;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  height: 80px;
+  margin-left: -75px;
+  margin-top: -40px;
+}
