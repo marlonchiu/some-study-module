@@ -52,6 +52,24 @@ $border-color: #aaa;
 
 // 引入另一个 SCSS 文件
 .container3 {
-  @import './App2.scss';  //引入另一个SCSS文件
+  @import './App2.scss'; //引入另一个SCSS文件
   border: 1px solid $border-color; //使用变量
+}
+
+// mixin 函数
+@mixin get-border-radius($border-radius: 5px, $color:red) {
+  -moz-border-radius: $border-radius;
+  -webkit-border-radius: $border-radius;
+  border-radius: $border-radius;
+  color: $color;
+}
+
+// 使用函数
+.container4 {
+  border: 1px solid #aaa;
+  @include get-border-radius; //不传参则为默认值5px
+  // 按照顺序传参
+  @include get-border-radius(10px, blue);
+  // 多个参数时，传参指定参数的名字，可以不用考虑传入的顺序
+  @include get-border-radius($color: rgb(236, 221, 14), $border-radius: 10px); //传参
 }
