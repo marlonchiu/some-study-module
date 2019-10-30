@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>定义变量</h2>
+    <h2 class="container">定义变量</h2>
     <div class="container1">
       <ul>
         <li>1</li>

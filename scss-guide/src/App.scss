@@ -1,0 +1,50 @@
+// 使用变量
+$border-color: #aaa;
+$border_color: red;
+
+.container {
+  $border-width: 1px;
+  border: $border-width solid $border-color; //使用变量
+}
+
+// 嵌套规则
+// 效果 列表元素横向排列的例子
+.container2 ul {
+  border: 1px solid #aaa;
+  list-style: none;
+
+  li {
+    float: left;
+
+    >a {
+      display: inline-block;
+      padding: 6px 12px;
+    }
+  }
+
+  &:after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
+.container1 ul {
+  border: 1px solid #aaa;
+  list-style: none;
+
+  li {
+    float: left;
+
+    border: 1px solid #aaa {
+      left: 0;
+      right: 0;
+    }
+  }
+
+  &:after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
