@@ -11,3 +11,8 @@
 > [Stylus 指南](https://github.com/marlonchiu/some-study-module/tree/master/stylus-guide)
 >
 > [张鑫旭博客：stylus 中文版参考文档](https://www.zhangxinxu.com/jq/stylus/)
+
+## Electron 入门
+> [Electron 入门](https://github.com/marlonchiu/some-study-module/tree/master/electron-demo)
+>
+> [打造你的第一个 Electron 应用](https://electronjs.org/docs/tutorial/first-app)
