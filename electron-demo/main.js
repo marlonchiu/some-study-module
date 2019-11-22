@@ -4,7 +4,7 @@ const path = require('path')
 let mainWindow
 function createWindow () {
   mainWindow = new BrowserWindow({
-    width: 800,
+    width: 1000,
     height: 600,
     webPreferences: {
       nodeIntegration: true,
@@ -15,8 +15,9 @@ function createWindow () {
   })
 
   mainWindow.loadFile('index.html')
+
   // 打开开发者工具
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
 
   // 当 window 被关闭，这个事件会被触发。
   mainWindow.on('closed', () => {
