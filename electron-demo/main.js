@@ -1,11 +1,11 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
 
 let mainWindow
 function createWindow () {
   mainWindow = new BrowserWindow({
     width: 1000,
-    height: 600,
+    height: 800,
     webPreferences: {
       nodeIntegration: true,
       // preload String(可选) - 在页面运行其他脚本之前预先加载指定的脚本
@@ -15,9 +15,17 @@ function createWindow () {
   })
 
   mainWindow.loadFile('index.html')
+  ipcMain.on('message', (event, arg) => {
+    // console.log(arg)
+    // 回复消息
+    event.reply('reply', 'hello from main process')
+  })
 
   // 打开开发者工具
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
+
+  // 安装 devtron 查看通信机制
+  require('devtron').install()
 
   // 当 window 被关闭，这个事件会被触发。
   mainWindow.on('closed', () => {
@@ -26,5 +34,16 @@ function createWindow () {
     // 与此同时，你应该删除相应的元素。
     mainWindow = null
   })
+
+  // const secondWindow = new BrowserWindow({
+  //   width: 600,
+  //   height: 400,
+  //   webPreferences: {
+  //     nodeIntegration: true
+  //   },
+  //   parent: mainWindow
+  // })
+
+  // secondWindow.loadFile('second.html')
 }
 app.on('ready', createWindow)
