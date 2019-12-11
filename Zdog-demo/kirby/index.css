@@ -1,0 +1,19 @@
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  background: #425;
+  color: white;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: move;
+}
