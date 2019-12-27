@@ -11,3 +11,4 @@
 > - [使用happypack将vuejs项目webpack初始化构建速度提升50%](https://flyyang.me/2017/03/09/%E4%BD%BF%E7%94%A8happypack%E5%B0%86vuejs%E9%A1%B9%E7%9B%AEwebpack%E5%88%9D%E5%A7%8B%E5%8C%96%E6%9E%84%E5%BB%BA%E9%80%9F%E5%BA%A6%E6%8F%90%E5%8D%8750/)
 > - [webpack进阶——DllPlugin优化打包性能（基于vue-cli）](https://juejin.im/entry/598bcbc76fb9a03c5754d211)
 > - [webpack踩坑记——DllPlugin和DllReferencePlugin(！！实现动态读取开发依赖配置)](https://segmentfault.com/a/1190000011795931)
+> - [webpack-bundle-analyzer插件快速入门](https://juejin.im/post/5cb70649f265da03452bd2d9)

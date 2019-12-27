@@ -13,6 +13,8 @@ const happyThreadPool = HappyPack.ThreadPool({
   size: os.cpus().length
 })
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+// 分析打包后的文件
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 // function resolve (dir) {
 //   return path.join(__dirname, '..', dir)
@@ -181,6 +183,10 @@ module.exports = {
     // 拷贝生成的文件到dist目录 这样每次不必手动去
     new CopyWebpackPlugin([
       { from: 'static', to: 'static' }
-    ])
+    ]),
+    new BundleAnalyzerPlugin({
+      analyzerHost: '127.0.0.1',
+      analyzerPort: 8889
+    })
   ]
 }
