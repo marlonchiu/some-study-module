@@ -3,6 +3,7 @@
 
 .idea
 .vscode
+.cache
 
 # misc
 .DS_Store
