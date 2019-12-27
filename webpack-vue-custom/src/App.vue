@@ -9,9 +9,9 @@ export default {
   data() {
     return {
       initData: 'vue 开发环境运行成功'
-    };
+    }
   }
-};
+}
 </script>
 
 <style scoped>
