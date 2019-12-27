@@ -1,4 +1,5 @@
 const path = require('path')
+const Webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const {
   CleanWebpackPlugin
@@ -6,8 +7,12 @@ const {
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 // 拆分多个 css
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
-const indexCss = new ExtractTextWebpackPlugin('index.css')
-const indexLess = new ExtractTextWebpackPlugin('index.less')
+// 编译vue 文件
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+
+// function resolve(dir) {
+//   return path.join(__dirname, '..', dir)
+// }
 
 module.exports = {
   mode: 'development',
@@ -27,16 +32,28 @@ module.exports = {
           }
         },
         exclude: /node_modules/
-      }, {
+      },
+      {
         test: /\.css$/,
-        use: indexCss.extract({
-          use: ['css-loader']
-        })
-      }, {
+        use: ['vue-style-loader', 'css-loader', {
+          loader: 'postcss-loader',
+          options: {
+            plugins: [require('autoprefixer')]
+          }
+        }]
+      },
+      {
         test: /\.less$/,
-        use: indexLess.extract({
-          use: ['css-loader', 'postcss-loader', 'less-loader']
-        })
+        use: ['vue-style-loader', 'css-loader', {
+          loader: 'postcss-loader',
+          options: {
+            plugins: [require('autoprefixer')]
+          }
+        }, 'less-loader']
+      },
+      {
+        test: /\.vue$/,
+        use: ['vue-loader']
       },
       {
         test: /\.(jpe?g|png|gif)$/i, // 图片文件
@@ -52,7 +69,8 @@ module.exports = {
             }
           }
         }]
-      }, {
+      },
+      {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/, // 媒体文件
         use: [{
           loader: 'url-loader',
@@ -84,17 +102,19 @@ module.exports = {
       }
     ]
   },
+  resolve: {
+    alias: {
+      'vue$': 'vue/dist/vue.runtime.esm.js',
+      '@': path.resolve(__dirname, '../src')
+    },
+    extensions: ['*', '.js', '.json', '.vue']
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../public/index.html'),
       filename: 'index.html',
       chunks: ['main'] // 与入口文件对应的模块名
     }),
-    // new HtmlWebpackPlugin({
-    //   template: path.resolve(__dirname, '../public/header.html'),
-    //   filename: 'header.html',
-    //   chunks: ['header'] // 与入口文件对应的模块名
-    // }),
     // clear dist before build
     new CleanWebpackPlugin(),
     // 拆分css
@@ -102,8 +122,15 @@ module.exports = {
       filename: '[name].[hash].css',
       chunkFilename: '[id].css'
     }),
-    // 拆分多个css
-    indexCss,
-    indexLess
-  ]
+    // 编译模板
+    new VueLoaderPlugin(),
+    // 热更新
+    new Webpack.HotModuleReplacementPlugin()
+  ],
+  // 热更新
+  devServer: {
+    port: 3000,
+    hot: true,
+    contentBase: '../dist'
+  }
 }
