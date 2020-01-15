@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import moduleA from './module/moduleA'
+import moduleA from './modules/moduleA'
 import {
   mutations
 } from './mutations'
