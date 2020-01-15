@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
+const base = `${process.env.BASE_URL}` // 获取二级目录
+console.log(base)
 
 const routes = [
   {
@@ -22,7 +24,8 @@ const routes = [
 
 const router = new VueRouter({
   mode: 'history',
-  base: process.env.BASE_URL,
+  base: base, // 设置 base 值
+  // base: process.env.BASE_URL,
   routes
 })
 
