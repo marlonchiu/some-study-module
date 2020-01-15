@@ -55,7 +55,15 @@ module.exports = {
     host: '0.0.0.0', // 指定使用一个 host。默认是 localhost
     port: 8090, // 端口地址 默认8080
     https: false, // 使用https提供服务
-    proxy: null, // string | Object 代理设置
+    // string | Object 代理设置
+    proxy: {
+      // 接口是 '/repos' 开头的才用代理
+      '/repos': {
+        target: 'https://api.github.com', // 目标地址
+        changeOrigin: true // 是否改变源地址
+        // pathRewrite: {'^/api': ''}
+      }
+    },
 
     // 提供在服务器内部的其他中间件之前执行自定义中间件的能力
     before: app => {
