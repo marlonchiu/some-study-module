@@ -1,8 +1,8 @@
-const http = require('http')
 const Controller = require('./controller.js')
-const controller = new Controller()
-
+const http = require('http')
 const server = http.createServer()
+
+const controller = new Controller()
 
 server.on('request', async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
@@ -27,5 +27,7 @@ server.on('request', async (req, res) => {
     await controller.handleFormData(req, res)
   }
 })
-
-server.listen(3000, () => console.log('正在监听 3000 端口'))
+const port = 3000
+server.listen(port, () => {
+  console.log(`正在监听${port}端口`)
+})

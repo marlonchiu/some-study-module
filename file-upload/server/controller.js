@@ -1,8 +1,9 @@
+const multiparty = require('multiparty')
 const path = require('path')
 const fse = require('fs-extra')
-const multiparty = require('multiparty')
 
-const extractExt = filename => filename.slice(filename.lastIndexOf('.'), filename.length) // 提取后缀名
+const extractExt = filename =>
+  filename.slice(filename.lastIndexOf('.'), filename.length) // 提取后缀名
 const UPLOAD_DIR = path.resolve(__dirname, '..', 'target') // 大文件存储目录
 
 // 合并切片
@@ -30,17 +31,14 @@ const resolvePost = req =>
 
 // 返回已经上传切片名
 const createUploadedList = async fileHash =>
-  fse.existsSync(`${UPLOAD_DIR}/${fileHash}`)
-    ? await fse.readdir(`${UPLOAD_DIR}/${fileHash}`) : []
+  fse.existsSync(`${UPLOAD_DIR}/${fileHash}`) ?
+  await fse.readdir(`${UPLOAD_DIR}/${fileHash}`) : []
 
 module.exports = class {
   // 合并切片
   async handleMerge(req, res) {
     const data = await resolvePost(req)
-    const {
-      fileHash,
-      filename
-    } = data
+    const { fileHash, filename } = data
     const ext = extractExt(filename)
     const filePath = `${UPLOAD_DIR}/${fileHash}${ext}`
     await mergeFileChunk(filePath, fileHash)
@@ -53,7 +51,7 @@ module.exports = class {
   }
 
   // 处理切片
-  async handleFormData (req, res) {
+  async handleFormData(req, res) {
     const multipart = new multiparty.Form()
     multipart.parse(req, async (err, fields, files) => {
       if (err) {
@@ -86,7 +84,7 @@ module.exports = class {
   }
 
   // 验证是否已上传/已上传切片下标
-  async handleVerifyUpload (req, res) {
+  async handleVerifyUpload(req, res) {
     const data = await resolvePost(req)
     const {
       fileHash,
